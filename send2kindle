@@ -1,0 +1,90 @@
+#!/usr/bin/env python 
+# -*- coding: utf-8 -*-
+# Filename: send2kindle
+# A script for sending file to your kindle device. only support gmail.
+# AUTHOR: jc_zou<zoujichun3166@gmail.com>
+
+import sys, os, smtplib, getpass, base64, ConfigParser
+from optparse import OptionParser
+from email.MIMEMultipart import MIMEMultipart
+from email.MIMEText import MIMEText
+
+def main():
+    usage = "\tusage: %s book_file"
+    argv = sys.argv
+    prog = os.path.basename(argv[0])
+
+    if len(argv) == 1:
+        print usage % (prog)
+        sys.exit(1)
+    book_file = argv[1]
+
+    # Run the program
+    process(book_file)
+
+def process(book_file):
+    config = get_config()
+    # Write the email
+    msg = MIMEMultipart()
+    msg['From'] = config['fromaddr']
+    msg['To'] = config['toaddrs']
+    msg['Subject'] = "send2kindle" 
+    body = ""
+    msg.attach(MIMEText(body, 'plain'))
+    # Attach file
+    if book_file:
+        try:
+            attach_book = MIMEText(open(book_file, 'rb').read(), 'base64', 'utf8')
+            attach_book["Content-Type"] = 'application/octet-stream'
+            filename = os.path.basename(book_file)
+            attach_book["Content-Disposition"] = 'attachment; filename="%s"' % (filename)
+            msg.attach(attach_book)
+        except:
+            msg.attach(MIMEText('attachment error', 'plain'))
+
+    # Converting email to text
+    text = msg.as_string()
+    
+    # The actual mail send
+    passwd = base64.b64decode(config['password'])
+    server = smtplib.SMTP('smtp.gmail.com:587')
+    server.ehlo()
+    server.starttls()
+    server.ehlo()
+    server.login(config['username'],passwd)
+    server.sendmail(config['fromaddr'], config['toaddrs'], text)
+    server.quit()
+
+def get_config():
+    conf = {}
+    conf_file = os.path.expanduser('~/.send2kindle.cfg')
+    conf_fmt = '''[Default]\nfromaddr = %s\ntoaddrs  = %s\n[Gmail]\nusername = %s\npassword = %s\n'''
+    # Read Config File
+    config = ConfigParser.RawConfigParser()
+    config.read(conf_file)
+    # Gmail Credentials
+    try:
+        conf['username'] = config.get('Gmail', 'username')
+        conf['password'] = config.get('Gmail', 'password')
+    except:
+        conf['username'] = raw_input('Gmail username: ')
+        passwd = getpass.getpass('Gmail password: ')
+        conf['password'] = base64.b64encode(passwd)
+
+    conf['fromaddr'] = conf['username'] + '@gmail.com'
+    
+    try:
+        conf['toaddrs']  = config.get('Default', 'toaddrs')
+    except:
+        conf['toaddrs'] = raw_input('Your Kindle Push Mail: ')
+
+    if not os.path.isfile(conf_file):
+        fd = open(conf_file,'w')
+        w_str = conf_fmt % (conf['fromaddr'], conf['toaddrs'], conf['username'], conf['password'])
+        fd.write(w_str)
+        fd.close()
+
+    return conf
+
+if __name__ == '__main__':
+    main()
