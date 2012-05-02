@@ -1,0 +1,11 @@
+# This is a default toolbar definition file for IceWM
+#
+# Place your personal variant in $HOME/.icewm directory.
+
+#prog xterm xterm /home/razone/bin/screenstart.sh
+#prog FTE fte fte
+#prog Netscape netscape netscape
+#prog    "Vim" vim /usr/bin/gvim -f
+#prog    Tuxcmd /usr/share/pixmaps/pcmanfm.png tuxcmd
+#prog    "WWW" /usr/share/pixmaps/firefox.png iceweasel
+

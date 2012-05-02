@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/razone/WorkStuff/redflagsupport/bigpty'
+let g:netrw_dirhist_2='/tmp/webser2-SYSINFO-20111115/var/log/mail'
+let g:netrw_dirhist_3='/home/razone/.xpaint'

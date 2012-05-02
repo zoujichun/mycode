@@ -1,0 +1,118 @@
+ThemeName="DustIce"
+ThemeDescription="This theme is based on Dust, FauxGlass, and my previus work AeroIce"
+ThemeAuthor="ocioslax"
+Look=flat
+Gradients="switchbg.xpm dialogbg.xpm taskbuttonbg.xpm taskbuttonactive.xpm taskbuttonminimized.xpm buttonA.xpm buttonI.xpm toolbuttonbg.xpm workspacebuttonbg.xpm workspacebuttonactive.xpm menubg.xpm taskbuttonactive.xpm menusel.xpm titleIB.xpm titleAB.xpm titleAS.xpm titleIS.xpm"
+RolloverButtonsSupported=1
+
+TitleButtonsRight="xmi"
+TitleButtonLeft="s"
+#TitleButtonsSupported="xim"
+TitleButtonsSupported="xism"
+TitleBarHeight=16
+
+TitleBarJustify=0
+
+BorderSizeX=2
+BorderSizeY=2
+CornerSizeX=16
+CornerSizeY=16
+DlgBorderSizeX=2
+DlgBorderSizeY=2
+
+ColorNormalButton="rgb:0a/0a/0a"
+ColorNormalButtonText="rgb:ff/ff/ff"
+ColorActiveButton="rgb:0a/0a/0a"
+ColorActiveButtonText="rgb:ff/ff/ff"
+
+ColorNormalTitleBarText="rgb:c0/c0/c0"
+ColorActiveTitleBarText="rgb:f5/f5/f5"
+ColorActiveTitleBarShadow="rgb:00/00/00"
+ColorNormalTitleBarShadow=""
+
+ColorActiveBorder="rgb:00/00/00"
+ColorNormalBorder="rgb:00/00/00"
+
+ColorDialog="rgb:d9/d4/cc"
+ColorListBox="rgb:34/33/30"
+ColorListBoxText="rgb:ff/ff/ff"
+ColorListBoxSelection="rgb:00/7f/df"
+ColorListBoxSelectionText="rgb:ff/ff/ff"
+ColorScrollBar="rgb:00/00/00"
+ColorScrollBarSlider="rgb:00/00/00"
+ColorScrollBarButton="rgb:00/00/00"
+ColorScrollBarButtonArrow="rgb:00/00/00"
+ColorLabel="rgb:d9/d4/cc"
+ColorLabelText="rgb:00/00/00"
+
+ColorNormalMenu="rgb:31/2f/2d"
+ColorActiveMenuItem="rgb:2c/2c/2c"
+ColorNormalMenuItemText="rgb:f5/f5/f5"
+ColorActiveMenuItemText="rgb:f5/f5/f5"
+ColorDisabledMenuItemText="rgb:66/66/66"
+ColorDisabledMenuItemShadow=""
+
+ColorDefaultTaskBar="rgb:0a/0a/0a"
+ColorNormalTaskBarApp="rgb:0a/0a/0a"
+ColorNormalTaskBarAppText="rgb:ff/ff/ff"
+ColorInvisibleTaskBarApp="rgb:0a/0a/0a"
+ColorInvisibleTaskBarAppText="rgb:ff/ff/ff"
+ColorActiveTaskBarApp="rgb:0a/0a/0a"
+ColorActiveTaskBarAppText="rgb:ff/ff/ff"
+ColorMinimizedTaskBarApp="rgb:0a/0a/0a"
+ColorMinimizedTaskBarAppText="rgb:ff/ff/ff"
+ColorNormalWorkspaceButton="rgb:00/00/00"
+ColorActiveWorkspaceButton="rgb:30/30/30"
+
+ColorInput="rgb:00/00/00"
+ColorInputText="rgb:ff/ff/ff"
+
+ColorClock=""
+ColorClockText="rgb:ff/ff/ff"
+
+ColorApm=""
+ColorApmText="rgb:ff/ff/ff"
+
+ColorCPUStatusUser="rgb:00/8f/ff"
+ColorCPUStatusSystem="rgb:00/cf/ff"
+ColorCPUStatusNice="rgb:9d/a1/bc"
+# ColorCPUStatusIdle=""
+# silly icewm: ColorCPUStatusIdle="" doesn't work - it's transparent but the monitoring is screwed, so this is poor-man's pseudo-transparency instead :)
+ColorCPUStatusIdle="rgb:00/00/00"
+
+ColorNetSend="rgb:4c/59/a6"
+ColorNetReceive="rgb:9d/a1/bc"
+ColorNetIdle="00/00/00"
+
+ColorToolTip="rgb:e6/e5/ac"
+ColorToolTipText="rgb:32/32/32"
+
+ColorMoveSizeStatus="rgb:d9/d4/cc"
+ColorMoveSizeStatusText="rgb:00/00/00"
+
+ColorQuickSwitch="rgb:31/2f/2d"
+ColorQuickSwitchText="rgb:ff/ff/ff"
+
+# Font Specification
+TitleFontNameXft		=	sans:bold:size=9
+MenuFontNameXft			=	sans:size=8
+MinimizedWindowFontNameXft	=	sans:size=8
+ActiveButtonFontNameXft		=	sans:size=8
+NormalButtonFontNameXft		=	sans:size=8
+ToolButtonFontNameXft		=	sans:size=8
+NormalWorkspaceFontNameXft	=	sans:size=8
+ActiveWorkspaceFontNameXft	=	sans:size=9
+QuickSwitchFontNameXft		=	sans:size=9
+ListBoxFontNameXft		=	sans:size=9
+StatusFontNameXft		=	sans:size=9
+ToolTipFontNameXft		=	sans:size=9
+ActiveTaskBarFontNameXft	=	sans:size=8
+NormalTaskBarFontNameXft	=	sans:size=8
+ClockFontNameXft		=	sans:size=8
+InputFontNameXft		=	sans:size=9
+ApmFontNameXft			=	sans:size=8
+
+TaskBarClockLeds=0
+TaskBarDoubleHeight=0
+SmallIconSize=16
+ShowMenuButtonIcon=1

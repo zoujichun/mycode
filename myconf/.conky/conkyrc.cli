@@ -1,0 +1,13 @@
+#background yes
+update_interval 3.0
+total_run_times 0
+no_buffers no
+cpu_avg_samples 5
+net_avg_samples 4
+diskio_avg_samples 5
+uppercase no # set to yes if you want all text to be in uppercase
+use_spacer none
+text_buffer_size 512
+
+TEXT
+${color FFCC00}${execi 1800 /home/razone/bin/lunar.sh} | ${execi 900 /home/razone/bin/weather.pl} | ${color 65FFD1}Temp${color} $acpitemp°C | ${color 65FFD1}CPU${color} ${cpu}%${color 65FFD1} | ${color 65FFD1}Mem ${color}$memperc% | ${exec /home/razone/bin/oss_conky.sh} | Now Playing:${exec /home/razone/bin/mpd_conky.sh}

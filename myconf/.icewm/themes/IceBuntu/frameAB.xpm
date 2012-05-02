@@ -1,0 +1,12 @@
+/* XPM */
+static char * frameAB_xpm[] = {
+"1 5 4 1",
+" 	c None",
+".	c #EFEBE7",
+"+	c #D8CFC7",
+"@	c #3D3A38",
+".",
+".",
+".",
+"+",
+"@"};

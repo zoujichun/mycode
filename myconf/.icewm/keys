@@ -1,0 +1,39 @@
+# This is an example for IceWM's hotkey definition file.
+#
+# Place your variants in /etc/X11/icewm or in $HOME/.icewm
+# since modifications to this file will be discarded when you
+# (re)install icewm.
+#
+# A list of all valid keyboard symbols can be found in
+# /usr/include/X11/keysym.h, keysymdefs.h, XF86keysym.h, ...
+# You'll have to omit XK_ prefixs and to replace XF86XK_ prefixes by
+# XF86. Valid modifiers are Alt, Ctrl, Shift, Meta, Super and Hyper.
+#
+key "Super+t"		/home/razone/bin/screenstart.sh
+key "Super+e"		pcmanfm
+key "Super+l"		/home/razone/bin/lock.sh
+key "Super+x"       dmenu_run -nb black -nf white 
+#key "Alt+Ctrl+g"		gimp
+#key "Alt+Ctrl+n"		netscape -noraise -remote openBrowser
+#key "Alt+Ctrl+b"		netscape -noraise -remote openBookmarks
+#key "Alt+Ctrl+m"		netscape -noraise -remote openURL(mailto:,new-window) 
+key "Super+f"		/home/razone/App/firefox-3.6/firefox
+key "Super+i"		pidgin
+#key "Alt+Ctrl+b"		mozilla -noraise -remote openBookmarks
+key "Super+p"		/home/razone/bin/mpdctl.sh
+key "Super+j"		mpc next
+key "Super+k"		mpc prev
+
+
+# "Multimedia key" bindings for XFree86. Gather the keycodes of your
+# advanced function keys by watching the output of the xev command whilest
+# pressing those keys and map those symbols by using xmodmap.
+key "Super+0"    /home/razone/bin/mute.sh	
+key "Super+minus" /home/razone/bin/lower_volume.sh
+key "Super+equal" /home/razone/bin/raise_volume.sh
+
+key "XF86AudioLowerVolume"	/home/razone/bin/lower_volume.sh
+key "XF86AudioRaiseVolume"	/home/razone/bin/raise_volume.sh
+key "XF86AudioMute"		/home/razone/bin/mute.sh
+key "Print" snapshot.sh
+key "Alt+Print" snapshot_select.sh

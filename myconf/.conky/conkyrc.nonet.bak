@@ -1,0 +1,64 @@
+background no
+cpu_avg_samples 2
+net_avg_samples 2
+out_to_console no
+use_xft yes
+xftfont YaHei Consolas Hybrid:size=9
+own_window_transparent no
+xftalpha 0
+mail_spool $MAIL
+update_interval 3.0
+own_window no
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar
+own_window_type override
+double_buffer yes
+minimum_size 260 5
+maximum_width 220
+draw_shades no
+draw_outline no
+draw_borders yes
+stippled_borders no
+#border_margin 4
+border_width 1
+default_color purple
+default_shade_color purple
+default_outline_color green
+gap_x 5
+gap_y 5
+alignment tr
+use_spacer none
+no_buffers yes
+uppercase yes
+override_utf8_locale yes
+mpd_host localhost
+mpd_port 6600
+
+TEXT
+${color yellow}${font DejaVu Sans Mono:size=15}${time %H:%M}${alignr}${font}${color green}${time %F}
+${font}${color}${hr 1}
+${color}${font DejaVu Sans Mono:size=9}${execpi 300 unset LANG; DJS=`date +%_d`; cal | sed '1d' | sed '/./!d' | sed 's/$/ /' | fold -w 21 | sed -n '/^.\{21\}/p' | sed 's/^/${alignc} /' | sed /" $DJS "/s/" $DJS "/" "'${color yellow}'"$DJS"'${color}'" "/}${font}
+${color}${hr 1}
+${color}Uptime: ${color green}${uptime}
+${color}Cpu Freq:${color yellow}${freq}MHz${color}${alignr}Cpu Use:${color}${alignr}${color yellow}(${cpu}%)
+${color green}${cpubar 4}
+${color}Ram Use:${color}${alignr}${color yellow}${mem}/${memmax}($memperc%)
+${color green}${membar 4}${color}
+Swap Use:${color}${alignr}${color yellow}${swap}/${swapmax}($swapperc%)
+${color green}${swapbar 4}${color}
+/root:${alignr}${color yellow}${fs_free /}/${fs_size /}
+${color green}${fs_bar 4 /}${color}
+/home:${color} ${alignr}${color yellow}${fs_free /home}/${fs_size /home}
+${color green}${fs_bar 4 /home}${color}
+Down ${color yellow}${downspeed eth0}${alignr}${color}Up ${color yellow}${upspeed eth0}
+${color green}${downspeedgraph eth0 15,100} ${alignr}${upspeedgraph eth0 15,100}
+${color}Total ${color yellow}${totaldown eth0} ${alignr}${color}Total ${color yellow}${totalup eth0}
+${color}${hr 1}
+${color}TOP CPU:
+${color red}${top name 1}${top cpu 1}
+${color yellow}${top name 2}${top cpu 2}
+${top name 3}${top cpu 3}
+${color}${hr 1}
+${color}Now Playing:
+${color yellow}${mpd_smart 100}
+${color green}${mpd_bar 4}

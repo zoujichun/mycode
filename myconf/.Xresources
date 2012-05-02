@@ -1,0 +1,73 @@
+Xft.dpi: 96
+! Color setting
+!URxvt.geometry: 200x53
+Rxvt.background:black
+Rxvt.foreground:white
+Rxvt.scrollBar:false
+Rxvt.saveLines:3000
+! transparent setting
+Rxvt.inheritPixmap:false
+Rxvt.tintColor:gray
+Rxvt.shading:-80
+! normal setting
+Rxvt.termName:xterm
+Rxvt.cursorBlink:true
+Rxvt.inputMethod:xim
+Rxvt.preeditType:Root
+!Rxvt.perl-ext-common: default,tabbed
+Rxvt.urlLauncher: firefox
+Rxvt.matcher.button: 1
+!URxvt.scrollTtyKeypress:true
+!URxvt.scrollWithBuffer:false
+!URxvt.font:xft:serif:pixelsize=13:antialias=false
+!URxvt.font: 9x15bold,\
+! -misc-fixed-bold-r-normal--15-140-75-75-c-90-iso10646-1,\
+! -misc-fixed-medium-r-normal--15-140-75-75-c-90-iso10646-1,\
+! [codeset=cp936]xft:serif:antialias=false, \
+! xft:simsun:antialias=false
+
+Rxvt.font:xft:DejaVu Sans Mono-9,xft:SimSun-9
+
+
+! test modify ALT key value
+!URxvt.insecure:true
+!URxvt.modifier:alt
+!URxvt.meta8:true
+!XTerm*VT100*metaSendsEscape:true
+
+!xterm struff
+!look and feel
+xterm.termName: xterm
+xterm.geometry: 80x36
+xterm*scrollBar: false
+xterm*rightScrollBar: true
+xterm*loginshell: true
+xterm*cursorBlink: true
+xterm*background:  black
+xterm*foreground:  white
+xterm.borderLess: true
+xterm.cursorBlink: true
+xterm*colorUL: yellow
+xterm*colorBD: white
+
+!font and locale
+xterm*locale: true
+xterm.utf8:     true
+xterm*utf8Title: true
+xterm*fontMenu*fontdefault*Label: Default
+xterm*faceName:DejaVu Sans Mono:antialias=True:pixelsize=13
+!xterm*faceName: monofur:antialias=True:pixelsize=20
+!xter*boldFont: DejaVu Sans Mono:style=Bold:pixelsize=12
+xterm*faceNameDoublesize:SimSun:pixelsize=13:antialias=True
+xterm*xftAntialias: true
+xterm*cjkWidth:false  
+
+!mouse selecting to copy, ctrl-v to paste
+!Ctrl p to print screen content to file
+XTerm*VT100.Translations: #override \
+    Ctrl Shift <KeyPress> V: insert-selection(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+    Shift <KeyPress> Insert:insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
+    ~Shift~Ctrl<Btn2Up>: insert-selection(CLIPBOARD, CUT_BUFFER1) \n\
+    Ctrl Shift <KeyPress> C: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0)\n\
+    <BtnUp>: select-end(CLIPBOARD,PRIMARY,CUT_BUFFER0) \n\
+!Ctrl <KeyPress> P: print() \n

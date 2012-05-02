@@ -1,0 +1,61 @@
+#!/bin/bash
+#Filename: autostart.sh
+
+# set the PATH
+PATH=$PATH:~/bin/
+
+#input method
+#killall fcitx > /dev/null 2>&1
+#if which fcitx > /dev/null 2>&1; then
+#	XMODIFIERS="@im=fcitx"
+#	GTK_IM_MODULE="xim"
+#	export XMODIFIERS
+#	export GTK_IM_MODULE
+#	fcitx > /tmp/fcitx.log 2>&1 &
+#fi
+
+
+# set the background
+if which feh > /dev/null 2>&1; then
+#    eval `feh --bg-scale ~/.background/back.jpg` &
+    feh --bg-scale ~/.background/backimage
+else
+    xsetroot -solid black &
+fi
+
+
+# panel
+#which tint2 > /dev/null 2>&1 && tint2 &
+#which bmpanel2 > /dev/null 2>&1 && bmpanel2 --theme=xsocam-dark &
+#which lxpanel > /dev/null 2>&1 && lxpanel &
+#which xfce4-panel > /dev/null 2>&1 && xfce4-panel &
+
+# scim
+#if which scim > /dev/null 2>&1; then
+#    XMODIFIERS="@im=SCIM"
+#    export XMODIFIERS
+#    GTK_IM_MODULE="xim"
+#    export GTK_IM_MODULE
+#    scim -d > /dev/null 2>&1 &
+#fi
+
+#file manager
+#which thunar > /dev/null 2>&1 && thunar --daemon &
+which pcmanfm > /dev/null 2>&1 && pcmanfm -d &
+
+#network
+#which nm-applet > /dev/null 2>&1 && nm-applet &
+#which wicd-client > /dev/null 2>&1 && ps -e | grep wicd > /dev/null 2>&1 && \
+#    wicd-client &
+
+#mldonky
+#if which mlnet > /dev/null 2>&1; then
+#    if ps -e | grep mlnet > /dev/null 2>&1; then
+#        :
+#    else
+#        mlnet > /dev/null 2>&1 & 
+#    fi
+#fi
+
+# conky
+which conky > /dev/null 2>&1 && conky -c ~/.conky/conkyrc > /dev/null 2>&1 &

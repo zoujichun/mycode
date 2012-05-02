@@ -1,0 +1,72 @@
+background no
+cpu_avg_samples 2
+net_avg_samples 2
+out_to_console no
+use_xft yes
+xftfont DejaVu Sans Mono:size=9
+own_window_transparent no
+xftalpha 0.8
+mail_spool $MAIL
+update_interval 3.0
+own_window no
+own_window_transparent yes
+own_window_hints undecorated,below,skip_taskbar
+own_window_type override
+double_buffer yes
+minimum_size 260 5
+maximum_width 240
+draw_shades no
+draw_outline no
+draw_borders no
+stippled_borders no
+#border_margin 4
+border_width 1
+#default_color #FFFFFF
+default_shade_color black
+default_outline_color green
+gap_x 5
+gap_y 5
+alignment top_right
+use_spacer none
+no_buffers yes
+uppercase no
+TEXT
+
+# time 
+${color #2E8B57}${time %F %H:%M}
+
+# cpu ranm swap
+${color #2E8B57}Resource Consumption ${color}${color #87CEEB}${hr 1}${color}
+${color #2E8B57}Cpu Use: ${color}${alignr}${color #082E54}(${cpu}%)${color}
+${color #87CEEB}${cpubar 4}${color}
+${color #2E8B57}Ram Use: ${color}${alignr}${color #082E54}$mem / $memmax ($memperc%)${color}
+${color #87CEEB}${membar 4}${color}
+${color #2E8B57}Swap Use:${color}${alignr}${color #082E54}$swap / $swapmax ($swapperc%)${color}
+${color #87CEEB}${swapbar 4}${color}
+
+# filesystem
+${color #2E8B57}Filesystem Use${color}${color #87CEEB}${hr 1}${color}
+${color #2E8B57}/root:${color} ${alignr}${color #87CEEB}${fs_free /}\
+        ${color} / ${color #87CEEB}${fs_size /}${color}
+${color #082E54}${fs_bar 4 /}${color}
+${color #2E8B57}/home:${color} ${alignr}${color #87CEEB}${fs_free /home}\
+        ${color} / ${color #87CEEB}${fs_size /home}${color}
+${color #082E54}${fs_bar 4 /home}${color}
+
+# network
+${color #2E8B57}Network${color}${color #87CEEB}${hr 1}${color}
+${color #082E54}Down ${downspeed eth0} k/s ${alignr}Up ${upspeed eth0} k/s${color}
+${color #082E54}${downspeedgraph eth0 25,107} ${alignr}${upspeedgraph eth0 25,107}${color}
+${color #082E54}Total ${totaldown eth0} ${alignr}Total ${totalup eth0}${color}
+
+#weather
+${color #2E8B57}Weather${color}${color #87CEEB}${hr 1}${color}
+${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=CN}
+${font Weather:size=25}${color gold}${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=WF}${font}${color}${voffset -20}${offset 18}${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=CC}${offset 10}${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=HT}${offset 10}${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=WS} ${font Arrows:size=8}${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=BF}$font
+${offset 60}Sol: ${color}${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=SR}-${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=SS}
+${font Weather:size=20}${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=WF --startday=1 --endday=4 --spaces=1}${font}
+${execi 3600 python ~/.conky/conkyForecast.py --location=CHXX0008 --datatype=HT --startday=1 --endday=4 --spaces=11}
+
+#Email
+${color #2E8B57}E-MAIL${color}${color #87CEEB}${hr 1}${color}
+You have ${color red}${texeci 1800 perl ~/.conky/check_gmail.sh} ${color}new mail(s)

@@ -1,0 +1,35 @@
+background yes
+font SimSun:size=9
+xftfont SimSun:size=9
+use_xft yes
+xftalpha 0.8
+update_interval 3.0
+total_run_times 0
+own_window yes
+own_window_type desktop
+own_window_transparent yes
+own_window_hints undecorated,below,above,skip_taskbar,skip_pager,sticky
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+minimum_size 500 5
+maximum_width 1024
+default_color BFBFBF
+default_shade_color black
+default_outline_color black
+alignment top_middle
+gap_x 0
+gap_y 0
+no_buffers no
+cpu_avg_samples 5
+net_avg_samples 4
+diskio_avg_samples 5
+override_utf8_locale yes
+uppercase no # set to yes if you want all text to be in uppercase
+use_spacer none
+text_buffer_size 512
+
+TEXT
+${color FFCC00}${font}${time %Y-%m-%d %H:%M %A}${color} | ${color 65FFD1}BAT${color} ${exec /home/razone/bin/acpi_conky.pl} | ${color 65FFD1}TEMP${color} $acpitemp°C | ${color 65FFD1}CPU${color} ${cpu}%${color} | ${color 65FFD1}MEM ${color}$memperc% | ${color 65FFD1}VOL ${color}${exec /home/razone/bin/oss_conky.pl} | ${color 65FFD1}MUSIC $color${exec /home/razone/bin/mpd_conky.pl}

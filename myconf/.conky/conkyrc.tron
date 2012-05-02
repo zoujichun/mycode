@@ -1,0 +1,66 @@
+#==============================================================================
+#                                 conkyrc_grey
+#
+#  author  : SLK
+#  version : v2011011601
+#  license : Distributed under the terms of GNU GPL version 2 or later
+#
+#==============================================================================
+
+background yes
+update_interval 1
+
+cpu_avg_samples 2
+net_avg_samples 2
+temperature_unit celsius
+
+double_buffer yes
+no_buffers yes
+text_buffer_size 2048
+
+gap_x 360
+gap_y 620
+minimum_size 580 890
+maximum_width 890
+own_window yes
+own_window_type override
+own_window_transparent yes
+own_window_hints undecorate,sticky,skip_taskbar,skip_pager,below
+border_inner_margin 0
+border_outer_margin 0
+alignment tr
+
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+
+override_utf8_locale yes
+use_xft yes
+xftfont SimSun:size=8
+xftalpha 0.5
+uppercase no
+
+default_color 00E0FF
+
+lua_load ~/.conky/conky.lua
+lua_draw_hook_post main
+
+TEXT
+${image ./.conky/tiles.png  -s 560x135 -p 0,20}
+
+${voffset 18}
+${goto 46}${color1}${cpugraph 30,100 44ACBE 07A9AB}
+${goto 36}${font Ubuntu:size=7,weight:normal}${color}${top name 1}${goto 108}${top cpu 1}%
+${goto 36}${font Ubuntu:size=7,weight:normal}${color}${top name 2}${goto 108}${top cpu 2}%
+${goto 36}${font Ubuntu:size=7,weight:normal}${color}${top name 3}${goto 108}${top cpu 3}%
+
+${voffset -62}
+${goto 185}${font Ubuntu:size=7,weight:normal}${color}${top_mem name 1}${goto 240}${top_mem mem 1}%
+${goto 185}${font Ubuntu:size=7,weight:normal}${color}${top_mem name 2}${goto 240}${top_mem mem 2}%
+${goto 185}${font Ubuntu:size=7,weight:normal}${color}${top_mem name 3}${goto 240}${top_mem mem 3}%
+
+${voffset -100}
+${goto 302}${color1}${diskiograph 30,100 44ACBE 07A9AB}
+${goto 310}${font Ubuntu:size=7,weight:normal}${color} /home used: ${fs_used /home}
+${goto 310}${font Ubuntu:size=7,weight:normal}${color}/ used: ${fs_used /}

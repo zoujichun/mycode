@@ -1,0 +1,38 @@
+background yes
+font Sans:size=8
+xftfont WenQuanYi Micro Hei:size=8
+#xftfont DroidSansMono:size=8
+use_xft yes
+xftalpha 0.8
+update_interval 1.0
+total_run_times 0
+own_window yes
+own_window_type dock
+own_window_transparent no
+own_window_hints undecorated,below,above,skip_taskbar,skip_pager,sticky
+double_buffer yes
+draw_shades no
+draw_outline no
+draw_borders no
+draw_graph_borders no
+minimum_size 1280 5
+#maximum_width 1000
+default_color BFBFBF
+default_shade_color black
+default_outline_color black
+alignment top_center
+gap_x 3
+gap_y 0
+no_buffers no 
+cpu_avg_samples 5
+net_avg_samples 3
+diskio_avg_samples 5
+override_utf8_locale yes
+uppercase no # set to yes if you want all text to be in uppercase
+use_spacer none
+text_buffer_size 1024
+top_name_width 5
+top_cpu_separate false
+
+TEXT
+ |:: ${color 00D3FF}$user_terms${color} | ${font :style=bold:size=7}${color FFCC00}${time %H:%M:%S}${font}${color}/${color 00D3FF}${time %G/%m/%d}${color}/${time %a} | ${color 65FFD1}Uptime${color}-$uptime_short | ${voffset -1}${color FFCC00}${font Webdings:size=12}W${font}${color} | ${color 65FFD1}CPU${color}-${freq_g}GHz/${cpu}%${color 65FFD1} | ${color 65FFD1}Mem${color}-$mem/$memmax/$memperc% | ${color 65FFD1}NET ${color 00FF0A}${font PizzaDude Bullets:size=8}T${font}${color}${downspeedf eth0}k/s ${color FFD200}${font PizzaDude Bullets:size=8}N${font}${color}${upspeedf eth0}k/s | ${color 65FFD1}Top/CPU:${color}${top name 1}${top cpu 1}% |${color 65FFD1}Top/MEM:${color}${top_mem name 1}${top_mem mem 1}% |${color 65FFD1}Top/IO:${color}${top_io name 1} ${top_io io_perc 1}% | ${font :style=bold:size=7}${color FFCC00}$desktop_name${color}${font} ::|

@@ -1,0 +1,118 @@
+ThemeDescription="IceHumanTangerine"
+ThemeAuthor="Thomas Geraint Adams"
+Look=metal
+
+RolloverButtonsSupported=1
+
+TitleButtonsSupported="xmis"
+TitleBarHeight=24
+
+TitleBarJustify=50
+
+TaskBarAtTop=0
+
+BorderSizeX=5
+BorderSizeY=5
+CornerSizeX=24
+CornerSizeY=24
+DlgBorderSizeX=5
+DlgBorderSizeY=5
+
+MenuMouseTracking=1 
+ShowMenuButtonIcon=1
+
+
+# theme specific colors
+ColorActiveButton="rgb:fd/d2/8f"
+ColorListBoxSelection="rgb:fd/d2/8f"
+ColorLabelText="rgb:fd/d2/8f"
+ColorInvisibleTaskBarApp="rgb:ac/d7/93"
+
+ColorCPUStatusUser="rgb:fd/d2/8f"
+ColorCPUStatusSystem="rgb:db/9a/56"
+ColorCPUStatusNice="rgb:ce/89/41"
+
+ColorNetSend="rgb:fd/d2/8f"
+ColorNetReceive="rgb:ce/89/41"
+
+
+# typical human-based gtk-theme colors follow
+ColorNormalButton="rgb:f1/ee/eb"
+ColorNormalButtonText="rgb:00/00/00"
+ColorActiveButtonText="rgb:00/00/00"
+
+ColorNormalTitleBarText="rgb:7f/7f/7f"
+ColorActiveTitleBarText="rgb:ff/ff/ff"
+ColorActiveTitleBarShadow="rgb:20/20/20"
+
+ColorActiveBorder="rgb:73/6a/60"
+ColorNormalBorder="rgb:73/6a/60"
+
+ColorDialog="rgb:ef/eb/e7"
+ColorListBox="rgb:ef/eb/e7"
+ColorListBoxText="rgb:00/00/00"
+ColorListBoxSelectionText="rgb:ff/ff/ff"
+ColorScrollBar="rgb:c3/c3/c3"
+ColorScrollBarSlider="rgb:e6/e6/e6"
+ColorScrollBarButton="rgb:e6/e6/e6"
+ColorScrollBarButtonArrow="rgb:00/00/00"
+ColorLabel="rgb:e6/e6/e6"
+
+ColorNormalMenu="rgb:ee/e9/e5"
+ColorActiveMenuItem="rgb:f6/f4/f2"
+ColorNormalMenuItemText="rgb:00/00/00"
+ColorActiveMenuItemText="rgb:00/00/00"
+ColorDisabledMenuItemText="rgb:80/80/80"
+
+ColorDefaultTaskBar="rgb:ee/e9/e5"
+ColorNormalTaskBarApp="rgb:ef/eb/e7"
+ColorNormalTaskBarAppText="rgb:00/00/00"
+
+ColorInvisibleTaskBarAppText="rgb:50/50/50"
+ColorActiveTaskBarApp="rgb:f6/f4/f2"
+ColorActiveTaskBarAppText="rgb:00/00/00"
+ColorMinimizedTaskBarApp="rgb:ef/eb/e7"
+ColorMinimizedTaskBarAppText="rgb:50/50/50"
+ColorNormalWorkspaceButton="rgb:f6/f4/f2"
+ColorActiveWorkspaceButton="rgb:f6/f4/f2"
+
+ColorInput="rgb:ee/e9/e5"
+ColorInputText="rgb:00/00/00"
+
+ColorClock=""
+ColorClockText="rgb:00/00/00"
+
+# ColorCPUStatusIdle=""
+# silly icewm: ColorCPUStatusIdle="" doesn't work - it's transparent but the monitoring is screwed, so this is poor-man's pseudo-transparency instead :)
+ColorCPUStatusIdle="rgb:cf/cf/cf"
+
+ColorNetIdle="rgb:cf/cf/cf"
+
+ColorToolTip="rgb:ff/ff/bf"
+ColorToolTipText="rgb:00/00/00"
+
+ColorMoveSizeStatus="rgb:ef/eb/e7"
+ColorMoveSizeStatusText="rgb:00/00/00"
+
+ColorQuickSwitch="rgb:dc/d8/d4"
+ColorQuickSwitchText="rgb:80/80/80"
+
+# Font Specification
+TitleFontNameXft		=	sans-serif:size=10:bold
+MenuFontNameXft			=	sans-serif:size=10
+MinimizedWindowFontNameXft	=	sans-serif:size=10
+ActiveButtonFontNameXft		=	sans-serif:size=10
+NormalButtonFontNameXft		=	sans-serif:size=10
+ToolButtonFontNameXft		=	sans-serif:size=10
+NormalWorkspaceFontNameXft	=	sans-serif:size=10
+ActiveWorkspaceFontNameXft	=	sans-serif:size=10
+QuickSwitchFontNameXft		=	sans-serif:size=10
+ListBoxFontNameXft		=	sans-serif:size=10
+StatusFontNameXft		=	sans-serif:size=10
+ToolTipFontNameXft		=	sans-serif:size=10
+ActiveTaskBarFontNameXft	=	sans-serif:size=10
+NormalTaskBarFontNameXft	=	sans-serif:size=10
+ClockFontNameXft		=	sans-serif:size=10
+InputFontNameXft		=	sans-serif:size=10
+
+TaskBarClockLeds=0
