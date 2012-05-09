@@ -1,0 +1,292 @@
+#!/bin/bash
+
+# 自动更新 hosts，包括 google、twitter、dropbox
+# Author: jc_zou<zoujichun3166@gmail.com>
+
+hosts=/etc/hosts
+hostsbak=/etc/hosts.update_hosts.bak
+
+if [ $UID != 0 ]; then
+    echo "Please run this tool as root."
+    exit 1
+fi
+
+if [ -f $hosts ]; then
+    cp -f $hosts $hostsbak
+    sed -i '/^#start_update_hosts.*/,/^#end_update_hosts.*/d' $hosts
+else
+    touch $hosts
+fi
+
+if which dig &>/dev/null; then 
+    GOOGLE=`dig @8.8.8.8 g.cn +short | sed -n '$p'`
+    TWITTER=`dig @8.8.8.8 twitter.com +short | sed -n '$p'`
+else
+    echo "Please install dig first."
+fi
+
+for ip in "$GOOGLE" "$TWITTER"; do
+    if [ -z $ip ]; then
+        echo "Network unaviable."
+        exit 1
+    fi
+done
+
+cat >>$hosts <<EOF
+#start_update_hosts
+#google
+$GOOGLE	0-focus-opensocial.googleusercontent.com	
+$GOOGLE	3hdrrlnlknhi77nrmsjnjr152ueo3soc-a-calendar-opensocial.googleusercontent.com	
+$GOOGLE	accounts.google.com	
+$GOOGLE	zoujichunblog.appspot.com	
+$GOOGLE	ajax.googleapis.com	
+$GOOGLE	android.l.google.com	
+$GOOGLE	a-oz-opensocial.googleusercontent.com	
+$GOOGLE	apis.google.com	
+$GOOGLE	appengine.google.com	
+$GOOGLE	bks0.books.google.com	
+$GOOGLE	bks1.books.google.com	
+$GOOGLE	bks2.books.google.com	
+$GOOGLE	bks3.books.google.com	
+$GOOGLE	bks4.books.google.com	
+$GOOGLE	bks5.books.google.com	
+$GOOGLE	bks6.books.google.com	
+$GOOGLE	bks7.books.google.com	
+$GOOGLE	bks8.books.google.com	
+$GOOGLE	bks9.books.google.com	
+$GOOGLE	blogsearch.google.cn	
+$GOOGLE	blogsearch.google.com.hk	
+$GOOGLE	books.google.com	
+$GOOGLE	browserchannel-docs.l.google.com	
+$GOOGLE	browserchannel-spreadsheets.l.google.com	
+$GOOGLE	browsersync.google.com	
+$GOOGLE	cache.pack.google.com	
+$GOOGLE	calendar.google.com	
+$GOOGLE	chatenabled.mail.google.com	
+$GOOGLE	checkout.google.com	
+$GOOGLE	chrome.google.com	
+$GOOGLE	clients1.google.com	
+$GOOGLE	clients1.googleusercontent.com	
+$GOOGLE	clients2.google.com	
+$GOOGLE	clients2.googleusercontent.com	
+$GOOGLE	clients3.google.com	
+$GOOGLE	clients3.googleusercontent.com	
+$GOOGLE	clients4.google.com	
+$GOOGLE	clients4.googleusercontent.com	
+$GOOGLE	clients5.google.com	
+$GOOGLE	clients5.googleusercontent.com	
+$GOOGLE	clients6.google.com	
+$GOOGLE	clients6.googleusercontent.com	
+$GOOGLE	clients7.google.com	
+$GOOGLE	clients7.googleusercontent.com	
+$GOOGLE	code.google.com	
+$GOOGLE	csi.gstatic.com	
+$GOOGLE	desktop.google.com	
+$GOOGLE	desktop2.google.com	
+$GOOGLE	ditu.google.cn	
+$GOOGLE	ditu.google.com	
+$GOOGLE	dl.google.com	
+$GOOGLE	docs.google.com	
+$GOOGLE	earth.google.com	
+$GOOGLE	encrypted.google.com	
+$GOOGLE	encrypted.google.com.hk	
+$GOOGLE	encrypted-tbn0.google.com	
+$GOOGLE	encrypted-tbn1.google.com	
+$GOOGLE	encrypted-tbn2.google.com	
+$GOOGLE	encrypted-tbn3.google.com	
+$GOOGLE	feedback.googleusercontent.com	
+$GOOGLE	finance.google.com	
+$GOOGLE	fonts.googleapis.com	
+$GOOGLE	g0.gstatic.com	
+$GOOGLE	gg.google.com	
+$GOOGLE	ghs.google.com	
+$GOOGLE	ghs.l.google.com	
+$GOOGLE	google.com	
+$GOOGLE	google.com.hk	
+$GOOGLE	googlecl.googlecode.com	
+$GOOGLE	googlehosted.l.googleusercontent.com	
+$GOOGLE	groups.google.com	
+$GOOGLE	id.google.cn	
+$GOOGLE	id.google.com	
+$GOOGLE	id.google.com.hk	
+$GOOGLE	images.google.com	
+$GOOGLE	images.google.com.hk	
+$GOOGLE	images0-focus-opensocial.googleusercontent.com	
+$GOOGLE	images1-focus-opensocial.googleusercontent.com	
+$GOOGLE	images2-focus-opensocial.googleusercontent.com	
+$GOOGLE	images3-focus-opensocial.googleusercontent.com	
+$GOOGLE	images4-focus-opensocial.googleusercontent.com	
+$GOOGLE	images5-focus-opensocial.googleusercontent.com	
+$GOOGLE	images6-focus-opensocial.googleusercontent.com	
+$GOOGLE	images-lso-opensocial.googleusercontent.com	
+$GOOGLE	images-oz-opensocial.googleusercontent.com	
+$GOOGLE	images-pos-opensocial.googleusercontent.com	
+$GOOGLE	investor.google.com	
+$GOOGLE	khms0.google.com	
+$GOOGLE	khms1.google.com	
+$GOOGLE	labs.google.com	
+$GOOGLE	large-uploads.l.google.com	
+$GOOGLE	lh1.ggpht.com	
+$GOOGLE	lh1.googleusercontent.com	
+$GOOGLE	lh2.ggpht.com	
+$GOOGLE	lh2.googleusercontent.com	
+$GOOGLE	lh3.ggpht.com	
+$GOOGLE	lh3.googleusercontent.com	
+$GOOGLE	lh4.ggpht.com	
+$GOOGLE	lh4.googleusercontent.com	
+$GOOGLE	lh5.ggpht.com	
+$GOOGLE	lh5.googleusercontent.com	
+$GOOGLE	lh6.ggpht.com	
+$GOOGLE	lh6.googleusercontent.com	
+$GOOGLE	m.google.com	
+$GOOGLE	mail.google.com	
+$GOOGLE	mail-attachment.googleusercontent.com	
+$GOOGLE	maps.google.cn	
+$GOOGLE	maps.google.com	
+$GOOGLE	maps.gstatic.cn	
+$GOOGLE	maps.gstatic.com	
+$GOOGLE	maps-api-ssl.google.com	
+$GOOGLE	mt0.google.cn	
+$GOOGLE	mt0.google.com	
+$GOOGLE	mt1.google.cn	
+$GOOGLE	mt1.google.com	
+$GOOGLE	mt2.google.cn	
+$GOOGLE	mt2.google.com	
+$GOOGLE	mt3.google.cn	
+$GOOGLE	mt3.google.com	
+$GOOGLE	mts0.google.com	
+$GOOGLE	mts1.google.com	
+$GOOGLE	music.google.com	
+$GOOGLE	music.googleusercontent.com	
+$GOOGLE	music-streaming.l.google.com	
+$GOOGLE	mw2.google.com	
+$GOOGLE	news.google.cn	
+$GOOGLE	news.google.com	
+$GOOGLE	news.google.com.hk	
+$GOOGLE	newsfeed-dot-latest-dot-rovio-ad-engine.appspot.com	
+$GOOGLE	nt0.ggpht.com	
+$GOOGLE	nt1.ggpht.com	
+$GOOGLE	nt2.ggpht.com	
+$GOOGLE	nt3.ggpht.com	
+$GOOGLE	oauth.googleusercontent.com	
+$GOOGLE	ode25pfjgmvpquh3b1oqo31ti5ibg5fr-a-calendar-opensocial.googleusercontent.com	
+$GOOGLE	pack.google.cn	
+$GOOGLE	pack.google.com	
+$GOOGLE	picasa.google.com	
+$GOOGLE	picasaweb.google.com	
+$GOOGLE	picasaweb.google.com.hk	
+$GOOGLE	places.google.com	
+$GOOGLE	plus.google.com	
+$GOOGLE	plus.google.com.hk	
+$GOOGLE	plusone.google.com	
+$GOOGLE	pop.gmail.com	
+$GOOGLE	profiles.google.com	
+$GOOGLE	project-slingshot-gp.appspot.com	
+$GOOGLE	s1.googleusercontent.com	
+$GOOGLE	s2.googleusercontent.com	
+$GOOGLE	s3.googleusercontent.com	
+$GOOGLE	s4.googleusercontent.com	
+$GOOGLE	s5.googleusercontent.com	
+$GOOGLE	s6.googleusercontent.com	
+$GOOGLE	safebrowsing.clients.google.com	
+$GOOGLE	safebrowsing-cache.google.com	
+$GOOGLE	sandbox.google.com	
+$GOOGLE	scholar.google.cn	
+$GOOGLE	scholar.google.com	
+$GOOGLE	scholar.google.com.hk	
+$GOOGLE	scholar.l.google.com	
+$GOOGLE	services.google.com	
+$GOOGLE	sites.google.com	
+$GOOGLE	sketchup.google.com	
+$GOOGLE	spreadsheets.google.com	
+$GOOGLE	ssl.google-analytics.com	
+$GOOGLE	ssl.gstatic.com	
+$GOOGLE	suggestqueries.google.com	
+$GOOGLE	t.doc-0-0-sj.sj.googleusercontent.com	
+$GOOGLE	t0.gstatic.com	
+$GOOGLE	t1.gstatic.com	
+$GOOGLE	t2.gstatic.com	
+$GOOGLE	t3.gstatic.com	
+$GOOGLE	talkgadget.google.com	
+$GOOGLE	talkx.l.google.com	
+$GOOGLE	themes.googleusercontent.com	
+$GOOGLE	toolbar.google.com	
+$GOOGLE	toolbar.google.com.hk	
+$GOOGLE	toolbarqueries.clients.google.com	
+$GOOGLE	toolbarqueries.google.com.hk	
+$GOOGLE	tools.google.com	
+$GOOGLE	translate.google.cn	
+$GOOGLE	translate.google.com	
+$GOOGLE	translate.google.com.hk	
+$GOOGLE	translate.googleapis.com	
+$GOOGLE	uploadsj.clients.google.com	
+$GOOGLE	v8mq9slfbk1dglresapkg0i5f8pm64lc-a-calendar-opensocial.googleusercontent.com	
+$GOOGLE	video.google.cn	
+$GOOGLE	video.google.com	
+$GOOGLE	video.google.com.hk	
+$GOOGLE	voice.google.com	
+$GOOGLE	wave.google.com	
+$GOOGLE	webcache.googleusercontent.com	
+$GOOGLE	wenda.google.com.hk	
+$GOOGLE	www.gmail.com	
+$GOOGLE	www.google.com	
+$GOOGLE	www.google.com.hk	
+$GOOGLE	www.googleadservices.com	
+$GOOGLE	www.google-analytics.com	
+$GOOGLE	www.googleapis.com	
+$GOOGLE	www.googlelabs.com	
+$GOOGLE	www.gstatic.com	
+$GOOGLE	www-calendar-opensocial.googleusercontent.com	
+$GOOGLE	www-opensocial.googleusercontent.com	
+$GOOGLE	www-oz-opensocial.googleusercontent.com	
+$GOOGLE	r3270-dot-latest-dot-project-slingshot-gp.appspot.com	
+$GOOGLE	bt26mravu2qpe56n8gnmjnpv2inl84bf-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	rbjhe237k979f79d87gmenp3gejfonu9-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	k6v18tjr24doa89b55o3na41kn4v73eb-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	8kubpeu8314p2efdd7jlv09an9i2ljdo-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	adstvca8k2ooaknjjmv89j22n9t676ve-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	ob7f2qc0i50kbjnc81vkhgmb5hsv7a8l-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	53rd6p0catml6vat6qra84rs0del836d-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	u807isd5egseeabjccgcns005p2miucq-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	r70rmsn4s0rhk6cehcbbcbfbs31pu0va-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	59cbv4l9s05pbaks9v77vc3mengeqors-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	i8brh95qor6r54nkl52hidj2ggcs4jgm-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	upt14k1i2veesusrda9nfotcrbp9d7p5-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	debh8vg7vd93bco3prdajidmm7dhql3f-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	4fjvqid3r3oq66t548clrdj52df15coc-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	hsco54a20sh11q9jkmb51ad2n3hmkmrg-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	qhie5b8u979rnch1q0hqbrmbkn9estf7-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	e6ha3snmi09c57cs4h4dnoa006cgfjfu-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	66fl6oqbdsqf5fjl032t5iulimtqjhpa-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	vvpk2b7flnbhcm2p10u4hcnatnp40i3i-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	0rgn8o7pqk7dq7rm8q0639erjd8gnf7g-a-oz-opensocial.googleusercontent.com	
+$GOOGLE	cfmmurgvo3fqrmfu0tjfcpgdt7mh6ccv-a-oz-opensocial.googleusercontent.com	
+#twitter
+$TWITTER oauth.twitter.com	
+$TWITTER twitter.com	
+$TWITTER www.twitter.com	
+$TWITTER mobile.twitter.com	
+$TWITTER api.twitter.com	
+$TWITTER search.twitter.com	
+$TWITTER userstream.twitter.com	
+$TWITTER ssl.twitter.com	
+$TWITTER status.twitter.com	
+$TWITTER assets0.twitter.com	
+$TWITTER assets1.twitter.com	
+$TWITTER assets2.twitter.com	
+$TWITTER assets3.twitter.com	
+$TWITTER static.twitter.com	
+$TWITTER platform.twitter.com	
+$TWITTER platform0.twitter.com	
+$TWITTER help.twitter.com	
+$TWITTER support.twitter.com	
+$TWITTER si0.twimg.com	
+$TWITTER si1.twimg.com	
+$TWITTER si2.twimg.com	
+$TWITTER si3.twimg.com	
+$TWITTER si4.twimg.com	
+$TWITTER si5.twimg.com	
+$TWITTER upload.twitter.com
+$TWITTER t.co
+#end_update_hosts
+EOF
